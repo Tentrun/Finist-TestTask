@@ -1,3 +1,4 @@
+using Finist_TestTask.Domain.DTO;
 using Finist_TestTask.IdentityServer.Extensions;
 using Grpc.Net.Client;
 using Microsoft.AspNetCore.Authorization;
@@ -10,9 +11,8 @@ namespace Finist_TestTask.WebApi.Controllers;
 public class ClientController : ControllerBase
 {
     [Authorize]
-    [HttpGet]
-    // GET
-    public async Task<IActionResult> Index(CancellationToken cancellationToken)
+    [HttpPost]
+    public async Task<ClientDTO> GetClientInfo(CancellationToken cancellationToken)
     {
         var userId = ClaimValueParser.GetUserId(HttpContext.User.Claims);
         
@@ -25,6 +25,11 @@ public class ClientController : ControllerBase
         };
 
         var serverResponse = await client.GetClientInfoAsync(request, cancellationToken: cancellationToken);
-        return Ok(serverResponse);
+
+        var result = new ClientDTO(serverResponse.Name, serverResponse.SecondName, serverResponse.Patronymic,
+            serverResponse.PhoneNumber, serverResponse.CardAccountNumber, serverResponse.DemandAccountNumber,
+            serverResponse.ExpressAccountNumber);
+        
+        return result;
     }
 }

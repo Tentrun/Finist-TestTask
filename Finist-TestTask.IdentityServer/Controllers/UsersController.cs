@@ -19,23 +19,12 @@ public class UsersController : ControllerBase
         _userManager = userManager;
     }
     
-    [HttpPost]
-    [Route("register")]
-    public async Task<IActionResult> Register(LoginRequest model)
-    {
-        var user = new IdentityUser()
-        {
-            Email = "test12@test.com",
-            SecurityStamp = Guid.NewGuid().ToString(),
-            UserName = model.Login,
-        };
-        var result =  await _userManager.CreateAsync(user, model.Password);
-        return Ok("registred");
-    }
-    
     // POST
+    
     [HttpPost]
     [Route("login")]
+    [Produces("application/json")]
+    [ProducesResponseType(200)]
     public async Task<IActionResult> Login(LoginRequest loginRequest)
     {
         if (!ModelState.IsValid)

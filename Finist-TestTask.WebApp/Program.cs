@@ -21,6 +21,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
+app.UseCors(c => c.AllowAnyHeader());
+app.UseCors(c => c.AllowAnyOrigin());
+app.UseCors(c => c.AllowAnyMethod());
 
 app.MapControllerRoute(
     name: "default",
