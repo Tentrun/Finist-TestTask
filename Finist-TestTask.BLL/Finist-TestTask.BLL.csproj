@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <RootNamespace>Finist_TestTask.BLL</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Finist-TestTask.DAL\Finist-TestTask.DAL.csproj" />
+      <ProjectReference Include="..\Finist-TestTask.Domain\Finist-TestTask.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

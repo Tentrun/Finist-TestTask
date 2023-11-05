@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "Finist_TestTask.WebApi";
+
+package client_info;
+
+service client_service {
+  rpc GetClientInfo (client_info_request) returns (client_info_reply);
+}
+
+message client_info_request {
+  string client_id = 1;
+}
+
+message client_info_reply {
+  string name = 1;
+  string second_name = 2;
+  string patronymic = 3;
+  string phone_number = 4;
+  string card_account_number = 5;
+  string demand_account_number = 6;
+  string express_account_number = 7;
+}
