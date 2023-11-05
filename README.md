@@ -7,6 +7,7 @@
 **Быстрые настройки докера -
 
 >docker run --name Finist-Identity -p 5434:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=Qwerty123@! -e POSTGRES_HOST_AUTH_METHOD=trust -v pg_data:/var/lib/postgresql/data -d postgres
+>
 >docker run --name Finist-Clients -p 5433:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=Qwerty123@! -e POSTGRES_HOST_AUTH_METHOD=trust -v pg_data:/var/lib/postgresql/data -d postgres
 
 Настройки всех БД храняться в соответсвующих проектах appsettings.Development.json
